@@ -23,15 +23,34 @@ When you click the **Knit** button a document will be generated that includes bo
 
 ##Scatterplot
 
-
 ```{r cars}
 library(tidyverse)
 #data() to see all the different datasets
 mpg
-g <- ggplot(mpg, aes(x=displ, y=hwy)) 
+g <- ggplot(mpg) 
 
-g + geom_point()
+g <- g + geom_point( aes(x=hwy, y=displ, color=displ < 5))
+g + aes(co)
+g + scale_color_grey()
 ```
+
+```{r mult_geoms}
+ggplot(data=mpg, aes(x=displ, y=hwy)) +
+  geom_point() +
+  geom_smooth()
+
+```
+##Customization
+```{r customize}
+ggplot(data=mpg, aes(x=displ, y=hwy)) +
+  geom_point() +
+  geom_smooth() +
+  labs("Relationships that dont suck",
+       x="MPG",
+       y="youre out of gas") 
+
+```
+
 
 ## Including Plots
 
